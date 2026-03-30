@@ -1,0 +1,14 @@
+import fetch from "node-fetch";
+
+const testAPI = async () => {
+  try {
+    const res = await fetch("http://0.0.0.0:8080/api/test");
+    const text = await res.text();
+    console.log("API Response:", text);
+  } catch (err) {
+    console.log("API Test Failed:", err.message);
+  }
+};
+
+testAPI();
+
