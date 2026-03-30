@@ -1,3 +1,4 @@
+import "./ChatWindow.css";
 function ChatWindow(){
   return (
     <></>
