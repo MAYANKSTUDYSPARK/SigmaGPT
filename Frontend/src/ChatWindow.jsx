@@ -6,7 +6,7 @@ function ChatWindow(){
       <div className="navbar">
         <span>SigmaGPT <i className="fa-solid fa-chevron-down"> </i></span>
   <div className="userIconDiv" >
- <span> <i className="fa-solid fa-user"></i></span>
+ <span className="userIcon"> <i className="fa-solid fa-user"></i></span>
   </div>
       </div>
       <chat></chat>
