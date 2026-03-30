@@ -4,8 +4,8 @@ function Sidebar() {
     <section className ="sidebar">
       {/* new chat button */}
       <button>
-      <img></img>
-        <i></i>
+      <img src="/Frontend/src/assets/file_000000004f1471fa8297f31228302488.png" alt="gpt logo"></img>
+   <i className="fa-solid fa-pen-to-square"></i>
       </button>
       {/* history */}
       {/* sign */}
