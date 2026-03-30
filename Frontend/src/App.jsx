@@ -7,7 +7,7 @@ function App() {
   const providerValues = {};//passing values
 
   return (
-    <div className ='main'>
+    <div className ='app'>
  <MyContext.Provider values={providerValues}>
       <Sidebar></Sidebar>
       <ChatWindow></ChatWindow>
