@@ -1,5 +1,5 @@
 import "./Chat.css";
-import { useContext } from "react";
+import { useContext , useState , useEffect } from "react";
 import { MyContext } from "./MyContext.jsx";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
@@ -7,12 +7,18 @@ import "highlight.js/styles/github-dark.css";
 
 function Chat() {
   const { newChat , prevChats } = useContext(MyContext);
+  const [latestReply , setLatestReply] = useState(null);
+
+  useEffect(() => {
+    if(!prevChats?.length)return;
+  },[prevChats , reply]
+ )
   return (
     <>
       {newChat && <h1> Start a New Chat!! </h1>}
     <div className ="chats">
       {
-        prevChats?.map((chat,idx)=> 
+        prevChats?.slice(0,-1).map((chat,idx)=> 
           <div className={chat.role === "user"? "userDiv" : "gptDiv"} key={idx}>
             {
               chat.role === "user"? 
