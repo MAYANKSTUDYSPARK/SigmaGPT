@@ -3,17 +3,26 @@ import Chat from "./Chat.jsx";
 import { MyContext } from "./MyContext.jsx";
 
 function ChatWindow(){
-const{  prompt , setPrompt , reply , setReply } = useContext(MyContext);
+const{  prompt , setPrompt , reply , setReply , currThreadId} = useContext(MyContext);
 const getReply = async () => {
-  const options {
+  console.log("message" , prompt, "threadId" , currThreadId);
+  const options = {
     method : "POST",
       headers :{
     "Content-Type" : "application/json"
       },
-    body : {
-      message : prompt , 
-      threadId :
-    }
+    body : JSON.stringify ({
+      message: prompt , 
+      threadId: currThreadid 
+    })
+  };
+  try{
+   const response = await fetch("https://sigmagpt-backend-eviz.onrender.com/api/chat" , options);
+ const res = await response.json();
+    console.log(res);
+    setReply(res.reply);
+  }catch(err){
+   console.log(err);
   }
 }
   
@@ -31,6 +40,7 @@ const getReply = async () => {
         <input placeholder="Ask Anything"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
+          onKeyDown={(e) => e.key ==='Enter'? getReply():''}
           >
         </input>
         <div id="submit" onClick={getReply}> <i className="fa-solid fa-paper-plane"></i></div>
