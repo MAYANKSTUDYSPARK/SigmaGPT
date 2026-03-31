@@ -47,7 +47,7 @@ function ChatWindow() {
         }]
       ));
     }
-    setPrompt=("");
+    setPrompt("");
   }, [reply]);
   return (
     <div className="ChatWindow">
