@@ -17,7 +17,7 @@ function Chat() {
             {
               chat.role === "user"? 
               <p className="userMessage">{chat.content}</p> :
-             <ReactMarkdown rehypePlugins{[rehypeHighlight]}>{chat.content}</ReactMarkdown>
+             <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{chat.content}</ReactMarkdown>
             }
           </div>
         )
