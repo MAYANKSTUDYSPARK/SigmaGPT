@@ -20,6 +20,11 @@ margin-left:15rem;
   max-width:500px;
   width:fit-content;
 }
-.gptMessage {
 
+.hls {
+  border-radius:14px !important ;
+}
+
+pre {
+  white-space:pre-wrap;
 }
