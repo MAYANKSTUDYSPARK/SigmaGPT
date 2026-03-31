@@ -1,6 +1,7 @@
 import "./ChatWindow.css";
 import Chat from "./Chat.jsx";
 import { MyContext } from "./MyContext.jsx";
+import { useContext } from "react";
 
 function ChatWindow(){
 const{  prompt , setPrompt , reply , setReply , currThreadId} = useContext(MyContext);
@@ -13,7 +14,7 @@ const getReply = async () => {
       },
     body : JSON.stringify ({
       message: prompt , 
-      threadId: currThreadid 
+      threadId: currThreadId 
     })
   };
   try{
@@ -34,7 +35,7 @@ const getReply = async () => {
  <span className="userIcon"> <i className="fa-solid fa-user"></i></span>
   </div>
       </div>
-      <chat></chat>
+      <Chat></Chat>
       <div className="chatInput">
       <div className="inputBox">
         <input placeholder="Ask Anything"
