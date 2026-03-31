@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className ='app'>
- <MyContext.Provider values={providerValues}>
+ <MyContext.Provider value ={providerValues}>
      <Sidebar></Sidebar>
       <ChatWindow></ChatWindow>
  </MyContext.Provider>
