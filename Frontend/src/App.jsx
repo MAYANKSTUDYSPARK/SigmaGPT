@@ -14,7 +14,9 @@ function App() {
   const providerValues = {
     prompt, setPrompt ,
     reply, setReply ,
-    currThreadId , setCurrThreadId
+    currThreadId , setCurrThreadId ,
+    newChat,  setNewChat ,
+    prevChats , setPrevChats 
   };
 
   return (
