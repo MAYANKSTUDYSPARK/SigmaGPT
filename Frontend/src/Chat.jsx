@@ -10,7 +10,7 @@ function Chat() {
     <div className ="chats">
       {
         prevChats?.map((chat,idx)=> 
-          <div className={chat.role === "user"? "userDiv" : "gptDiv" key={idx}>
+          <div className={chat.role === "user"? "userDiv" : "gptDiv"} key={idx}>
             {
               chat.role === "user"? 
               <p className="userMessage">{chat.content}</p> :
