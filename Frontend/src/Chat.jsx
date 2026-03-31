@@ -1,14 +1,15 @@
 import "./Chat.css";
+import { useContext } from "react";
+import { MyContext } from "./MyContext.jsx";
 
-function Chat({ reply }) {
+function Chat() {
+  const { newChat } = useContext(MyContext);
   return (
-    <div className="chatBox">
-      {reply ? (
-        <div className="reply">{reply}</div>
-      ) : (
-        <div className="placeholder">Start chatting 🚀</div>
-      )}
+    <>
+      {newChat && <h1> Start a New Chat!! </h1>}
+    <div className="chats">
     </div>
+    </>
   );
 }
 
