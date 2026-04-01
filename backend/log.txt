@@ -1,0 +1,30 @@
+nohup: ignoring input
+Server Running On 8080
+Connected With Database!
+API RESPONSE: {
+  id: 'chatcmpl-70e3b943-c7f7-4999-9ed0-477f517824ea',
+  object: 'chat.completion',
+  created: 1774760503,
+  model: 'llama-3.1-8b-instant',
+  choices: [
+    {
+      index: 0,
+      message: [Object],
+      logprobs: null,
+      finish_reason: 'stop'
+    }
+  ],
+  usage: {
+    queue_time: 0.046505249,
+    prompt_tokens: 38,
+    prompt_time: 0.001757951,
+    completion_tokens: 10,
+    completion_time: 0.021224785,
+    total_tokens: 48,
+    total_time: 0.022982736
+  },
+  usage_breakdown: null,
+  system_fingerprint: 'fp_f757f4b0bf',
+  x_groq: { id: 'req_01kmvzgachf158q34aa21t6f75', seed: 825055597 },
+  service_tier: 'on_demand'
+}
