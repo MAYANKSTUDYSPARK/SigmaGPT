@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 import { useContext } from "react";
-import { MyContext } from "./MyContext.jsx":
+import { MyContext } from "./MyContext.jsx";
 import {v1 as uuidv1} from "uuid";
 
 function Sidebar() {
