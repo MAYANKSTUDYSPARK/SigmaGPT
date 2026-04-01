@@ -10,6 +10,10 @@ function Chat() {
   const [latestReply , setLatestReply] = useState(null);
 
   useEffect(() => {
+    if(reply === null) {
+      setLatestReply(null); //prev chat load
+      return;
+    }
     if(!prevChats?.length)return;
     const content = reply.split(" "); //individual words 
 
@@ -43,6 +47,12 @@ function Chat() {
         prevChats.length > 0 && latestReply !== null &&
         <div className="gptDiv" key={"typing"}>
         <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{latestReply}</ReactMarkdown>
+        </div>
+      }
+      {
+        prevChats.length > 0 && latestReply === null &&
+        <div className="gptDiv" key={"non-typing"}>
+        <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{prevChats,[prevChats.length-1].content}</ReactMarkdown>
         </div>
       }
     </div>
