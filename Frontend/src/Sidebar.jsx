@@ -1,10 +1,10 @@
 import "./Sidebar.css";
-import { useContext } from "react";
+import { useContext , useEffect } from "react";
 import { MyContext } from "./MyContext.jsx";
 import {v1 as uuidv1} from "uuid";
 
 function Sidebar() {
-const(allThreads , setAllThreads , currThreadId , setNewChat , setPrompt , setReply , setCurrThreadId , setPrevChats) = useContext(MyContext);
+const{allThreads , setAllThreads , currThreadId , setNewChat , setPrompt , setReply , setCurrThreadId , setPrevChats}= useContext(MyContext);
 
   const getAllThreads = async () => {
 try{
@@ -54,7 +54,7 @@ const res = await response.json();
       <ul className="history">
         {
         allThreads?.map((thread , idx ) => (
-          <li key={threadId}
+          <li key={thread.threadId}
             onClick={(e) => changeThread(thread.threadId)}
             >{thread.title}</li>
         ))
