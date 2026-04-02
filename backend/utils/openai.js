@@ -13,7 +13,7 @@ export const chatWithAI = async (message) => {
         body: JSON.stringify({
           model: "llama-3.1-8b-instant",
           messages: [
-            { role: "user", content: message }
+            { role: "user", content: messages }
           ]
         })
       }
