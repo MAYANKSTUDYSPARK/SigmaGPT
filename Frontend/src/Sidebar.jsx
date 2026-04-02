@@ -43,6 +43,23 @@ const res = await response.json();
       console.log(err);
     }
   }
+
+  const deleteThread = async (threadId) => {
+    try {
+      const response = await fetch(`https://sigmagpt-backend-eviz.onrender.com/api/thread/${threadId}` , {method: "DELETE"});
+      const res = await response.json();
+      console.log(res);
+
+      //updated threads re-renderr
+      setAllThreads(prev => prev.filter(thread => thread.threadId !== threadId));
+  if(threadId === currThreadId) {
+    createNewChat();
+  }
+    
+    } catch(err){
+      console.log(err);
+    }
+  }
   
   return(
     <section className ="sidebar">    
@@ -57,7 +74,12 @@ const res = await response.json();
           <li key={thread.threadId}
             onClick={(e) => changeThread(thread.threadId)}
             >{thread.title}
-          <i className="fa-solid fa-trash"></i>
+          <i className="fa-solid fa-trash"
+            onClick={(e) => {
+              e.stopPropagation(); //stop event bubbling
+              deleteThread(thread.threadId);
+            }}
+            ></i>
           </li>
         ))
         }
