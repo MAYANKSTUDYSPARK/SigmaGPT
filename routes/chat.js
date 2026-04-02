@@ -1,6 +1,6 @@
 import express from "express";
 import Thread from "../modals/Threads.js";
-import getOpenAIAPIResponse from "../utils/openai.js";
+import chatWithAI from "../utils/openai.js";
 
 const router = express.Router();
 
@@ -97,7 +97,7 @@ thread = new Thread({
                 thread.messages.push({role : "user", content : message});
         }
         
-   const assistantReply =  await getOpenAIAPIResponse(message)  ;        
+   const assistantReply =  await chatWithAI(messages)  ;        
    thread.messages.push({role:"assistant", content: assistantReply});
    thread.updatedAt = new Date();
    await thread.save();
