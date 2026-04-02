@@ -1,7 +1,9 @@
 import fetch from "node-fetch";
 
-export const chatWithAI = async (message) => {
+export const chatWithAI = async (messages) => {
   try {
+    console.log("🔥 Sending messages:", messages); // DEBUG
+
     const response = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
       {
@@ -12,19 +14,15 @@ export const chatWithAI = async (message) => {
         },
         body: JSON.stringify({
           model: "llama-3.1-8b-instant",
-          messages: [
-            { role: "user", content: messages }
-          ]
+          messages: messages   // 🔥 FULL ARRAY
         })
       }
     );
 
     const data = await response.json();
 
-    // 🔍 DEBUG
     console.log("API RESPONSE:", data);
 
-    // 🛑 SAFE CHECK
     if (!data || !data.choices || data.choices.length === 0) {
       return "AI se response nahi mila";
     }
