@@ -56,7 +56,9 @@ const res = await response.json();
         allThreads?.map((thread , idx ) => (
           <li key={thread.threadId}
             onClick={(e) => changeThread(thread.threadId)}
-            >{thread.title}</li>
+            >{thread.title}
+          <i className="fa-solid fa-trash"></i>
+          </li>
         ))
         }
       </ul>
